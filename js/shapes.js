@@ -15,10 +15,14 @@
  */
 
 function Rectangle (left, top, width, height, stylesMap) {
-    Shape.call(left, top, width, height, stylesMap);
+    this.left = left;
+    this.top = top;
+    this.width = width;
+    this. height = height;
+    this.stylesMap = stylesMap;
 
     this.renderShape = function(canvasCtx) {
-        return canvasCtx.fillRect(left, top, width, height, stylesMap);
+        return canvasCtx.fillRect(this.left, this.top, this.width, this.height, this.stylesMap);
     };
 }
 
@@ -28,11 +32,15 @@ registerClassicalShape('Rectangle', Rectangle);
 
 
 function Circle (left, top, width, height, stylesMap) {
-    Shape.call(left, top, width, height, stylesMap);
+    this.left = left;
+    this.top = top;
+    this.width = width;
+    this. height = height;
+    this.stylesMap = stylesMap;
 
     this.renderShape = function(canvasCtx) {
         canvasCtx.beginPath();
-        canvasCtx.arc(left, top, height, 0, 2*Math.PI, stylesMap);
+        canvasCtx.arc(this.left, this.top, this.height, 0, 2*Math.PI, this.stylesMap);
         return canvasCtx.fill();
     };
 }
@@ -43,7 +51,11 @@ registerClassicalShape('Circle', Circle);
 
 
 function HelloWorld (left, top, width, height, stylesMap) {
-    Shape.call(left, top, width, height, stylesMap);
+    this.left = left;
+    this.top = top;
+    this.width = width;
+    this. height = height;
+    this.stylesMap = stylesMap;
 
     this.renderShape = function(canvasCtx) {
         canvasCtx.font = "20px Verdana";
@@ -55,7 +67,7 @@ function HelloWorld (left, top, width, height, stylesMap) {
         gradient.addColorStop("1.0","green");
 
         canvasCtx.fillStyle = gradient;
-        return canvasCtx.fillText("Hello World!", left, top);
+        return canvasCtx.fillText("Hello World!", this.left, this.top);
     };
 }
 
